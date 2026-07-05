@@ -11,18 +11,19 @@ import CpuScheduling from "./pages/CpuScheduling";
 import Sorting from "./pages/Sorting";
 import Searching from "./pages/Searching";
 import AISearch from "./pages/AISearch";
+import { useDarkMode } from "./context/DarkModeContext";
 
 function App() {
+    const { darkMode } = useDarkMode();
 
     return (
         <BrowserRouter>
 
             <Navbar />
 
-            <div style={{padding:"20px",
-                         width: "100vw",
-                         minHeight: "100vh"}}>
-
+            <div className={`min-h-screen transition-colors duration-300 ${
+                darkMode ? 'bg-gray-900' : 'bg-gray-50'
+            }`}>
                 <Routes>
 
                     <Route
@@ -51,7 +52,6 @@ function App() {
                     />
 
                 </Routes>
-
             </div>
 
         </BrowserRouter>
